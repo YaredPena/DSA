@@ -7,3 +7,5 @@ class Solution:
                 return True
             seen.add(i)
         return False
+
+solution = Solution()
