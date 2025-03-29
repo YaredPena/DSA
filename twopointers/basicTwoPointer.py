@@ -14,7 +14,7 @@ next = curr + 1
 res = set()
 
 ## ok it solved half of the problem 
-## how does it get the other duplicate
+## how does it get the other duplicate??? I'll think this over
 for i in array:
     if array[curr] == array[next]:
         res.add((curr, next))
