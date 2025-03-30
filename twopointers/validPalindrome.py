@@ -6,11 +6,11 @@ class Solution:
 
         while left < right:
             ## this is basically checking if we get a symbol ignore it
-            while left < right and not self.alpha_numeric(s[left]):
+            while left < right and not s[left].isalnum():
                 left +=1
             
              ## same here
-            while right > left and not self.alpha_numeric(s[right]):
+            while right > left and not s[right].isalnum():
                 right -= 1
 
             if s[left].lower() != s[right].lower():
@@ -20,10 +20,12 @@ class Solution:
 
         return True
 
-    def alpha_numeric(self, c):
+#### this is coool
+    '''def alpha_numeric(self, c):
         return (ord('A') <= ord(c) <= ord('Z') or 
                 ord('a') <= ord(c) <= ord('z') or
                 ord('0') <= ord(c) <= ord('9'))
+    '''
 
     #### what if it wansn't only alphanumeric characters?
     ##def symbols(self, c):
