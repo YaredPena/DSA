@@ -1,3 +1,5 @@
+'''
+this is an unoptimized solution
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         ## we're making this to check for frequency
@@ -27,3 +29,34 @@ class Solution:
         res = [item[0] for item in sorted_items[:k]]
 
         return res
+'''
+
+## this is the optimized solution 
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        ## PART 1:
+        hashmap = {}
+
+        for i in nums:
+            ## big difference 
+            #3 we're not using nums[i] instead only i,
+            ## this must be because we're not getting the range(len()) 
+            ## of nums!!
+            hashmap[i] = 1 + hashmap.get(i, 0) 
+
+        ## PART 2:
+
+        bucket = [[] for i in range(len(nums) + 1)]
+
+        for i, frequency in hashmap.items():
+            bucket[frequency].append(i)
+        
+        result = []
+
+
+        ### PART 3:
+        for i in range(len(bucket) -1, 0, -1):
+            for number in bucket[i]:
+                result.append(number)
+                if len(result) == k:
+                    return result
